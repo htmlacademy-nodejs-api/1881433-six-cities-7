@@ -1,0 +1,105 @@
+{
+	"api": {
+		"titles": [
+			"Хибара",
+			"Домик",
+			"Бунгало",
+			"Изба",
+			"Сарай"
+		],
+		"descriptions": [
+			"Сдается уютная квартира в центре города.",
+			"Аренда светлой студии с видом на парк.",
+			"Семейный дом в тихом районе готов к аренде.",
+			"Комната в общежитии для студентов.",
+			"Двухкомнатная квартира с мебелью и бытовой техникой."
+		],
+		"cities": [
+			"Paris",
+			"Cologne",
+			"Brussels",
+			"Amsterdam",
+			"Hamburg",
+			"Dusseldorf"
+		],
+		"previews": [
+			"test@preview_1.local",
+			"test@preview_2.local",
+			"test@preview_3.local",
+			"test@preview_4.local",
+			"test@preview_5.local"
+		],
+		"images": [
+			"image_euuNdDu.jpg",
+			"image_bfRgWdB.jpg",
+			"image_j5JHeEx.jpg",
+			"image_GIqjknI.jpg",
+			"image_IbOo0qC.jpg",
+			"image_qN2YaZw.jpg",
+			"image_olz4gFg.jpg",
+			"image_dTxBzaO.jpg",
+			"image_gcz769X.jpg",
+			"image_dXLl1uO.jpg",
+			"image_ZWPxINj.jpg",
+			"image_a3kzXWE.jpg",
+			"image_jN9yHGB.jpg",
+			"image_w40ul3b.jpg",
+			"image_8kCRjdu.jpg"
+		],
+		"proStatuses": [
+			"free",
+			"pro"
+		],
+		"favouriteStatuses": [
+			"regular",
+			"favourite"
+		],
+		"housingTypes": [
+			"apartment",
+			"house",
+			"room",
+			"hotel",
+			"house"
+		],
+		"services": [
+			"Breakfast",
+			"Air conditioning",
+			"Laptop friendly workspace",
+			"Baby seat",
+			"Washer",
+			"Fridge"
+		],
+		"firstnames": [
+			"Вася",
+			"Маша",
+			"Петя",
+			"Миша",
+			"Дуся"
+		],
+		"emails": [
+			"fusajzun@go.la",
+			"ko@lalu.gn",
+			"hihuk@mosowgud.kh",
+			"ho@isikom.hk",
+			"ogi@turunagip.no"
+		],
+		"avatarPaths": [
+			"ava_l68cn6.jpg",
+			"ava_4ec771.jpg",
+			"ava_oaspjf.jpg",
+			"ava_q22nio.jpg",
+			"ava_xa8zoy.jpg"
+		],
+		"passwords": [
+			"sha_t4e69cropf",
+			"sha_78l84wjr8u",
+			"sha_5sjt8kvil6",
+			"sha_uwf6cbpiyg",
+			"sha_cjsxk6e9xj"
+		],
+		"typeUsers": [
+			"standart",
+			"vip"
+		]
+	}
+}
