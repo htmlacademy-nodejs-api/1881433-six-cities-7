@@ -32,7 +32,6 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       firstname,
       email,
       avatarPath,
-      password,
       typeUser,
       commentsCount,
       latitude,
@@ -54,7 +53,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       countGuests: this.parseNumber(countGuests),
       price: this.parseNumber(price),
       services: this.parseItems(services),
-      user: this.parseUser(firstname, email, avatarPath, password, typeUser),
+      user: this.parseUser(firstname, email, avatarPath, typeUser),
       commentsCount: this.parseNumber(commentsCount),
       latitude: this.parseFloatNumber(latitude),
       longitude: this.parseFloatNumber(longitude),
@@ -73,8 +72,8 @@ export class TSVFileReader extends EventEmitter implements FileReader {
     return Number.parseFloat(itemStringToNumber);
   }
 
-  private parseUser(firstname: string, email: string, avatarPath: string, password: string, typeUser: string): User {
-    return { firstname, email, avatarPath, password, typeUser };
+  private parseUser(firstname: string, email: string, avatarPath: string, typeUser: string): User {
+    return { firstname, email, avatarPath, typeUser };
   }
 
   public async read(): Promise<void> {
