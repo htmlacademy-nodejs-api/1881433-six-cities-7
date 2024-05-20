@@ -16,7 +16,6 @@ export type MockServerData = {
     firstnames: string[];
     emails: string[];
     avatarPaths: string[];
-    //passwords: string[];
     typeUsers: string[];
     commentsCounts: string[];
     latitudes: string[];
