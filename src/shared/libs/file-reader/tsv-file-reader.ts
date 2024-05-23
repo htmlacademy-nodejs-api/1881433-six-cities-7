@@ -2,7 +2,7 @@ import EventEmitter from 'node:events';
 import { createReadStream } from 'node:fs';
 
 import { FileReader } from './file-reader.interface.js';
-import { Offer, User } from '../../types/index.js';
+import { Offer, User, OfferType, Cities, UserType } from '../../types/index.js';
 
 export class TSVFileReader extends EventEmitter implements FileReader {
   private CHUNK_SIZE = 16384;
@@ -42,18 +42,18 @@ export class TSVFileReader extends EventEmitter implements FileReader {
       title,
       description,
       postDate: new Date(createdDate),
-      city,
+      city: city as Cities,
       preview,
       images: this.parseItems(images),
-      proStatus,
-      favouriteStatus,
+      proStatus: Boolean(this.parseNumber(proStatus)),
+      favouriteStatus: Boolean(this.parseNumber(favouriteStatus)),
       rating: this.parseFloatNumber(rating),
-      housingType,
+      housingType: housingType as OfferType,
       countRooms: this.parseNumber(countRooms),
       countGuests: this.parseNumber(countGuests),
       price: this.parseNumber(price),
       services: this.parseItems(services),
-      user: this.parseUser(firstname, email, avatarPath, typeUser),
+      user: this.parseUser(firstname, email, avatarPath, typeUser as UserType),
       commentsCount: this.parseNumber(commentsCount),
       latitude: this.parseFloatNumber(latitude),
       longitude: this.parseFloatNumber(longitude),
@@ -72,7 +72,7 @@ export class TSVFileReader extends EventEmitter implements FileReader {
     return Number.parseFloat(itemStringToNumber);
   }
 
-  private parseUser(firstname: string, email: string, avatarPath: string, typeUser: string): User {
+  private parseUser(firstname: string, email: string, avatarPath: string, typeUser: UserType): User {
     return { firstname, email, avatarPath, typeUser };
   }
 

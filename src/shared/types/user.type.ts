@@ -1,6 +1,8 @@
+import { UserType } from './user-type.enum.js';
+
 export type User = {
     firstname: string;
     email: string;
     avatarPath: string;
-    typeUser: string;
+    typeUser: UserType;
 }

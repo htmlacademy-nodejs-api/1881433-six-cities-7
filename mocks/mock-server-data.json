@@ -14,14 +14,6 @@
 			"Комната в общежитии для студентов.",
 			"Двухкомнатная квартира с мебелью и бытовой техникой."
 		],
-		"cities": [
-			"Paris",
-			"Cologne",
-			"Brussels",
-			"Amsterdam",
-			"Hamburg",
-			"Dusseldorf"
-		],
 		"previews": [
 			"test@preview_1.local",
 			"test@preview_2.local",
@@ -45,21 +37,6 @@
 			"image_jN9yHGB.jpg",
 			"image_w40ul3b.jpg",
 			"image_8kCRjdu.jpg"
-		],
-		"proStatuses": [
-			"free",
-			"pro"
-		],
-		"favouriteStatuses": [
-			"regular",
-			"favourite"
-		],
-		"housingTypes": [
-			"apartment",
-			"house",
-			"room",
-			"hotel",
-			"house"
 		],
 		"services": [
 			"Breakfast",
@@ -89,10 +66,6 @@
 			"ava_oaspjf.jpg",
 			"ava_q22nio.jpg",
 			"ava_xa8zoy.jpg"
-		],
-		"typeUsers": [
-			"standart",
-			"vip"
 		]
 	}
 }
