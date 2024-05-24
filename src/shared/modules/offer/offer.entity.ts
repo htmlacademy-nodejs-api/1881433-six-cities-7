@@ -79,10 +79,10 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public commentCount!: number;
 
   @prop({ required: true })
-  public latitude: number;
+  public latitude!: number;
 
   @prop({ required: true })
-  public longitude: number;
+  public longitude!: number;
 
 }
 
