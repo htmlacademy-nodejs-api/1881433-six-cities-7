@@ -1,8 +1,8 @@
-import { Service } from './service.type.js';
 import { User } from './user.type.js';
-import { Image } from './image.type.js';
 import { OfferType } from './offer-type.enum.js';
 import { Cities } from './cities.enum.js';
+import { Service } from './service.type.js';
+import { Image } from './image.type.js';
 
 export type Offer = {
     title: string;
