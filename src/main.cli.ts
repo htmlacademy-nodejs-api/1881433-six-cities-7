@@ -1,4 +1,6 @@
 #!/home/alexander/.nvm/versions/node/v20.11.1/bin/node
+import 'reflect-metadata';
+
 import {
   CLIApplication,
   GenerateCommand,
@@ -6,7 +8,6 @@ import {
   ImportCommand,
   VersionCommand
 } from './cli/index.js';
-
 function bootstrap() {
   const cliApplication = new CLIApplication();
   cliApplication.registerCommands([
@@ -15,8 +16,7 @@ function bootstrap() {
     new ImportCommand(),
     new GenerateCommand(),
   ]);
-
   cliApplication.processCommand(process.argv);
 }
-
 bootstrap();
+
