@@ -23,43 +23,43 @@ export interface OfferEntity extends defaultClasses.Base {}
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class OfferEntity extends defaultClasses.TimeStamps {
   @prop({ trim: true, required: true })
-  public title!: string;
+  public title: string;
 
   @prop({ trim: true })
-  public description!: string;
+  public description: string;
 
   @prop({ required: true })
-  public postDate!: Date;
+  public postDate: Date;
 
   @prop({ required: true })
-  public city!: Cities;
+  public city: Cities;
 
   @prop({ required: true })
-  public preview!: string;
+  public preview: string;
 
   @prop({
     required: true,
     default: []
   })
-  public images!: string[];
+  public images: string[];
 
   @prop({ required: true })
-  public rating!: number;
+  public rating: number;
 
   @prop({
     housingType: () => String,
     enum: OfferType
   })
-  public housingType!: OfferType;
+  public housingType: OfferType;
 
   @prop({ required: true })
-  public countRooms!: number;
+  public countRooms: number;
 
   @prop({ required: true })
-  public countGuests!: number;
+  public countGuests: number;
 
   @prop()
-  public price!: number;
+  public price: number;
 
   @prop({
     ref: CategoryEntity,
@@ -67,22 +67,22 @@ export class OfferEntity extends defaultClasses.TimeStamps {
     default: [],
     _id: false
   })
-  public services!: Ref<CategoryEntity>[];
+  public services: Ref<CategoryEntity>[];
 
   @prop({
     ref: UserEntity,
     required: true
   })
-  public userId!: Ref<UserEntity>;
+  public userId: Ref<UserEntity>;
 
   @prop({default: 0})
-  public commentCount!: number;
+  public commentCount: number;
 
   @prop({ required: true })
-  public latitude!: number;
+  public latitude: number;
 
   @prop({ required: true })
-  public longitude!: number;
+  public longitude: number;
 
 }
 

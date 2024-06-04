@@ -7,4 +7,4 @@ export { Offer } from './offer.type.js';
 export { Service } from './service.type.js';
 export { UserType } from './user-type.enum.js';
 export { User } from './user.type.js';
-
+export {Comment} from './comment.type.js';

@@ -1,0 +1,574 @@
+openapi: '3.0.2'
+info:
+  title: API сервер для личного проекта «Шесть городов».
+  description: |-
+    * Список ресурсов и маршрутов сервера «Шесть городов».
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 2.0.0
+
+tags:
+  - name: offers
+    description: Действия с объявлениями.
+  - name: comments
+    description: Действия с комментариями.
+  - name: users
+    description: Действия с пользователем.
+
+servers:
+  - url:  https://jsonplaceholder.typicode.com
+
+
+paths:
+  /offers/getting:
+    get:
+      tags:
+        - offers
+      summary: Получение списка предложений.
+      description: Получает список предложений.
+      
+      responses:
+        "200":
+          description: Список предложений успешно загружен.
+
+        "404":
+          description: Запрашиваемый ресурс отсутствует.
+
+  /offers/creation:
+    post:
+      tags:
+        - offers
+      summary: Создание нового предложения.
+      description: Создаёт новое предложение.
+      requestBody:
+        description: Информация для создания нового предложения.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createOffer'
+        required: true
+
+      responses:
+        "201":
+          description: Предложение успешно создано. Объект предложения.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offer'
+
+        "400":
+          description: Предложение не может быть создано проверьте оязательные поля.
+
+  /offers/updating:
+    put:
+      description: Полностью обновляет предложение.
+      requestBody:
+        description: Информация для создания нового предложения.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createOffer'
+        required: false
+
+      responses:
+        "203":
+          description: Предложение успешно обновлено. Объект предложения.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offer'
+
+        "404":
+          description: Предложение не может быть обновлено проверьте оязательные поля.
+
+  /offers/patching:
+    patch:
+      tags:
+        - offers
+      summary: Частичное обновление предложения.
+      description: Частично обновляет предложение.
+
+      requestBody:
+        description: Информация для создания нового предложения.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createOffer'
+        required: false
+
+      responses:
+        "201":
+          description: Предложение успешно частично обновлено. Объект предложения.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/offer'
+
+        "400":
+          description: Предложение не может быть обновлено проверьте оязательные поля.
+
+  /offers/dropping:
+    delete:
+      tags:
+        - offers
+      summary: Удаление предложения.
+      description: Удаляет предложение
+
+      responses:
+        "200":
+          description: Предложение успешно удалено.
+
+        "404":
+          description: Предложение принадлежит другому пользователю.
+
+  /offers/oneOffer:
+    get:
+      tags:
+        - offers
+      summary: Получение определённого предложения.
+      description: Получает детальную информацию по предложению.
+      
+      responses:
+        "200":
+          description: Информация успешно загружено.
+
+        "404":
+          description: Запрашиваемый ресурс отсутствует.
+
+  /comments/getting:
+    get:
+      tags:
+        - comments
+      summary: Получение списка комментариев.
+      description: Получает список комментариев.
+      
+      responses:
+        "200":
+          description: Список комментариев успешно загружен.
+
+        "404":
+          description: Запрашиваемый ресурс отсутствует.
+
+  /comments/create:
+    post:
+      tags:
+        - comments
+      summary: Создание нового предложения.
+      description: Создаёт новое предложение.
+      requestBody:
+        description: Информация для создания нового предложения.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createComment'
+        required: true
+
+      responses:
+        "201":
+          description: Предложение успешно создано. Объект предложения.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comment'
+
+        "400":
+          description: Предложение не может быть создано проверьте оязательные поля.
+
+  /users/register:
+    post:
+      tags:
+        - users
+      summary: Регистрация пользователя
+      description: Регистрирует нового пользователя.
+
+      requestBody:
+        description: Информация для создания нового пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createUser'
+        required: true
+
+      responses:
+        "201":
+          description: Пользователь зарегистрирован. Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+
+        "409":
+          description: Пользователь с таким email уже существует.
+
+  /users/login:
+    post:
+      tags:
+        - users
+      summary: Авторизация пользователя
+      description: Авторизует пользователя на основе логина и пароля
+
+      requestBody:
+        description: Информация для авторизации пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginUser'
+        required: true
+
+      responses:
+        "201":
+          description: Пользователь авторизован. Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+
+        "400":
+          description: Пользователь не может быть авторизован проверьте оязательные поля.
+
+  /users/logout:
+    post:
+      tags:
+        - users
+      summary: Авторизация пользователя
+      description: Выход пользователя из закрытой части приложения
+
+      requestBody:
+        description: Информация для авторизации пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginUser'
+        required: true
+
+      responses:
+        "201":
+          description: Пользователь авторизован. Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+
+        "400":
+          description: Пользователь не может быть авторизован проверьте оязательные поля.
+
+  /users/loginState:        
+    get:
+      tags:
+        - users
+      summary: Проверка состояния пользователя
+      description: Возвращает информацию по авторизованному пользователю
+
+      requestBody:
+        description: Информация о состоянии авторизации пользователя.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginUser'
+        required: true
+
+      responses:
+        "201":
+          description: Пользователь авторизован. Объект пользователя.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user'
+
+        "401":
+          description: Пользователь не авторизован.
+
+  /users/{userId}/avatar:
+    post:
+      tags:
+        - users
+      summary: Загрузить изображение аватара
+      description: Загружает изображение аватара пользователя. Изображение
+        аватара должно быть в формате `png` или `jpg`.
+      
+      requestBody:
+        description: Информация для загрузки аватара.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/uploadAvatar'
+        required: false
+
+      responses:
+        "201":
+          description: Аватар загружен. Объект загрузки.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/avatar'
+
+        "400":
+          description: Аватар не загружен.
+
+components:
+  schemas:
+    createOffer:
+
+      type: object
+
+      properties:
+
+        title:
+          type: string
+          example: Домик на опушке.
+        
+        description:
+          type: string
+          example: Заброшенный домишко в лесу.
+
+        postDate:
+          type: string
+          example: 2023-05-02T09:21:10.453Z
+
+        city:
+          type: string
+          example: Paris
+
+        preview:
+          type: string
+          example: test@preview_2.local
+
+        images:
+          type: array
+          items:
+            type: string
+          example: 
+            - photo_1.jpg
+            - photo_2.jpg
+            - photo_3.jpg
+            - photo_4.jpg
+            - photo_5.jpg
+            - photo_6.jpg
+
+        rating:
+          type: number
+          example: 4.4
+
+        housingType:
+          type: string
+          example: house
+
+        countRooms:
+          type: number
+          example: 4
+
+        countGuests:
+          type: number
+          example: 6
+
+        price:
+          type: number
+          example: 25000
+
+        services:
+          type: array
+          items:
+            type: object
+            items:
+              type: string
+          example: 
+            - Breakfast
+            - Laptop friendly workspace
+
+        userId:
+          type: string
+          example: 665b5d348fe648dcab3a9e53
+
+        latitude:
+          type: number
+          example: 53.550341
+
+        longitude:
+          type: number
+          example: 22.918808
+          
+    offer:
+      type: object
+      properties:
+        
+        title:
+          type: string
+          example: Домик на опушке.
+        
+        description:
+          type: string
+          example: Заброшенный домишко в лесу.
+
+        postDate:
+          type: string
+          example: 2023-05-02T09:21:10.453Z
+
+        city:
+          type: string
+          example: Paris
+
+        preview:
+          type: string
+          example: test@preview_2.local
+
+        images:
+          type: array
+          items:
+            type: string
+          example: 
+            - photo_1.jpg
+            - photo_2.jpg
+            - photo_3.jpg
+            - photo_4.jpg
+            - photo_5.jpg
+            - photo_6.jpg
+
+        rating:
+          type: number
+          example: 4.4
+
+        housingType:
+          type: string
+          example: house
+
+        countRooms:
+          type: number
+          example: 4
+
+        countGuests:
+          type: number
+          example: 6
+
+        price:
+          type: number
+          example: 25000
+
+        services:
+          type: array
+          items:
+            type: object
+            items:
+              type: string
+          example: 
+            - Breakfast
+            - Laptop friendly workspace
+
+        userId:
+          type: string
+          example: 665b5d348fe648dcab3a9e53
+
+        latitude:
+          type: number
+          example: 53.550341
+
+        longitude:
+          type: number
+          
+    createComment:
+      type: object
+      properties:
+
+        text:
+          type: string
+          example: Домик уже не на опушке.
+        
+        postDate:
+          type: string
+          example: 2023-05-02T09:21:10.453Z
+
+        rating:
+          type: number
+          example: 2.8
+
+        author:
+          type: string
+          example: Уася
+
+    comment:
+      type: object
+      properties:
+
+        text:
+          type: string
+          example: Домик уже не на опушке.
+        
+        postDate:
+          type: string
+          example: 2023-05-02T09:21:10.453Z
+
+        rating:
+          type: number
+          example: 2.8
+
+        author:
+          type: string
+          example: Уася
+
+    createUser:
+      type: object
+
+      properties:
+        email:
+          type: string
+          example: keks@htmlacademy.ru
+
+        firstname:
+          type: string
+          example: Keks
+
+        password:
+          type: string
+          example: 123456
+
+    user:
+      type: object
+
+      properties:
+        id:
+          type: string
+          example: 6329c3d6a04ab1061c6425ea
+
+        email:
+          type: string
+          example: keks@htmlacademy.ru
+
+    loginUser:
+      type: object
+
+      properties:
+        login:
+          type: string
+          example: keks@htmlacademy.ru
+
+        password:
+          type: string
+          example: 123456
+
+    logoutUser:
+      type: object
+
+      properties:
+        login:
+          type: string
+          example: keks@htmlacademy.ru
+
+        password:
+          type: string
+          example: 123456
+    
+    uploadAvatar:
+      type: object
+
+      properties:
+        avatar:
+          type: string
+          example: keks.png
+
+    avatar:
+      type: object
+
+      properties:
+        avatar:
+          type: string
+          example: keks.png

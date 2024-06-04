@@ -45,8 +45,8 @@ export class TSVOfferGenerator implements OfferGenerator {
     );
     const preview = getRandomItem<string>(this.mockData.previews);
     const images = getMassiv<string>(this.mockData.images, 6).join(';');
-    const proStatus = generateRandomValue(STATUS_FALSE, STATUS_TRUE, 1).toString();
-    const favouriteStatus = generateRandomValue(STATUS_FALSE, STATUS_TRUE, 1).toString();
+    const proStatus = getRandomItem([STATUS_FALSE, STATUS_TRUE]).toString();
+    const favouriteStatus = getRandomItem([STATUS_FALSE, STATUS_TRUE]).toString();
     const rating = generateRandomValue(MIN_RATING_COUNT, MAX_RATING_COUNT, 1).toString();
     const housingType = getRandomItem(
       [
