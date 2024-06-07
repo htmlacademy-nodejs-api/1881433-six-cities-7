@@ -1,6 +1,5 @@
 export class CreateCommentDto {
-  text: string;
-  postDate: Date;
-  rating: number;
-  authorId: string;
+  public text: string;
+  public offerId: string;
+  public userId: string;
 }
