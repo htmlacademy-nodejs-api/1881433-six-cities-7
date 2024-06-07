@@ -51,6 +51,9 @@ export class DefaultCategoryService implements CategoryService {
             as: 'offers'
           },
         },
+        { $addFields:
+          { id: { $toString: '$_id'}, offerCount: { $size: '$offers'} }
+        },
       ]).exec();
   }
 }
