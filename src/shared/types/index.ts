@@ -8,3 +8,4 @@ export { Service } from './service.type.js';
 export { UserType } from './user-type.enum.js';
 export { User } from './user.type.js';
 export {Comment} from './comment.type.js';
+export { SortType } from './sort-type.enum.js';
