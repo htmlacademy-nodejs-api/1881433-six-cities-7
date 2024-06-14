@@ -7,7 +7,6 @@ import {
 } from '@typegoose/typegoose';
 
 import { OfferType, Cities } from '../../types/index.js';
-import { CategoryEntity } from '../category/index.js';
 import { UserEntity } from '../user/index.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
@@ -62,12 +61,9 @@ export class OfferEntity extends defaultClasses.TimeStamps {
   public price: number;
 
   @prop({
-    ref: CategoryEntity,
     required: true,
-    default: [],
-    _id: false
   })
-  public services: Ref<CategoryEntity>[];
+  public services: object[];
 
   @prop({
     ref: UserEntity,
