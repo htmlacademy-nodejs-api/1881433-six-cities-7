@@ -29,3 +29,9 @@ export function getMassiv<T>(massiv: T[], count: number): T[] {
   }
   return testMassiv;
 }
+
+export function createErrorObject(message: string) {
+  return {
+    error: message,
+  };
+}
