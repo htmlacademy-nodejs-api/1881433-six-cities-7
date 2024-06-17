@@ -3,7 +3,9 @@ export {
   getRandomItems,
   getRandomItem,
   getErrorMessage,
-  getMassiv
+  getMassiv,
+  fillDTO,
+  createErrorObject
 } from './common.js';
 
 export { getCurrentModuleDirectoryPath } from './file-system.js';
